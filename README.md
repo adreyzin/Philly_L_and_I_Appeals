@@ -12,6 +12,10 @@ The Department of Licenses and Inspections accepts applications for appeals of v
 ### Reducing number of decision outcomes
 Currently the Decision column for the dataset has 21 various outcomes: 'admin/review', 'affirmed', 'approved', 'boardaknowl', 'continued', 'denied', 'dismissed', 'granted', 'held', 'held/info', 'issued', 'late-apprvd', 'late-denied', 'moot', 'newhearnot', 'newhearyes', 'refused', 'remand', 'reschedule', 'revised', 'sustained'. To simplify the modeling process these values were translated in only three outcomes: 'approved', 'denied', and 'other'.  
 ### Adding 'lawyer' feature  
+It appears that the top appellants are all lawyers. This can’t be verified without access to the Philadelphia Bar Association records. 
+An assumption has been made that ESQ or ESQUIRE in the field identifies the primary appellant as a lawyer.  
+| appellant | No of Recs |
+| ----- | ------------------------------------ |
 |SHAWN D. WARD, ESQUIRE | 421|
 |ZHEN JIN | 288|
 |JOSEPH BELLER, ESQ. | 254|
@@ -27,6 +31,7 @@ Currently the Decision column for the dataset has 21 various outcomes: 'admin/re
 |CARL PRIMAVERA, ESQUIRE | 150|
 |LEO MULVIHILL, JR., ESQ. | 147|
 |HENRY M. CLINTON, ESQ | 143|
+
 
 Comparison between lat features and geocode_y as well as between lng and geocode_x showed very strong correlation. So only lat and lng were used in the data models.
 Histogram of distances from Center City shows that the most of the records are concentrated closer to Center City and the number gradually drops further away. This is also consistent with the Center City being more densely built and more densely populated.
