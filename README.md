@@ -43,7 +43,20 @@ Approved and Denied centroids are very close to each other.
 
 ### Distances from Center City
 Histogram of distances from Center City shows that the most of the records are concentrated closer to Center City and the number gradually drops further away. This is also consistent with the Center City being more densely built and more densely populated.
-<img src="images/distances_from_CC.png"/  width="100">  
-
-
+<img src="images/distances_from_CC.png"  width="400">  
+  
+## Pre-processing and Training Data Development  
+Following steps have been taken for the data pre-processing:  
+* Application Type column had both fully spelled out values: 'Zoning Board of Adjustment', 'Board of Building Standards', and 'L&I Review Board Codes' as well as abbreviated values: 'RB_ZBA', 'RB_LIRB', 'RB_BBS'. Abbreviated values have been replaced with the fully spelled values and the column was replaced altogether with three "dummy" columns.  
+* There were only 4 records for 'Plumbing Advisory Board'. They were dropped from the dataset.  
+* Based on presence of a word 'esquire' or 'esq' in primaryappellant column new categorical column 'lawyer' has been created.  
+* Following Philadelphia landmarks were added: Center City, South Philadelphia High School, Philadelphia County Assistance Office Delancey District and Frankford Transportation Center. New features have been created to measure the distance to these landmarks.  
+* New features for the squared values of the distances to the landmarks were created as well.  
+* Values in the column appealgrounds were all changed to the lower case and all punctuation marks have been removed.  
+* Categorical applicationtype column has been replaced with the "dummy" quantifiable data.  
+* Further TFIDF classifier has been used with appealgrounds column. Following parameters were used while building the classifier:  
+  * English stop words were used  
+  * n-gram range 1,3 (from unigram to tri-gram)  
+  * Word document frequency was set to be between 15 and 75  
+25% of the data were set as a test dataset with the rest used for model training.
 
