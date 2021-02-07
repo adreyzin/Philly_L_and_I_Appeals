@@ -59,5 +59,25 @@ Following steps have been taken for the data pre-processing:
   * n-gram range 1,3 (from unigram to tri-gram)  
   * Word document frequency was set to be between 15 and 75  
 
-25% of the data were set as a test dataset with the rest used for model training.
+25% of the data were set as a test dataset with the rest used for model training.  
+
+## Modeling  
+Several models have been used with various feature selection with and without the results of the TFIDF vectorizer. It appears that the K Neighbors Classifier model without TFIDF vectorizer with the number of neighbors set to 10 has produced the most accurate results. The model was the most accurate while using the most but not all of the available features.  
+Interestingly enough no model produced better results while using TFIDF vectorizer compared to the models without it. The best one with TFIDF vectorizer was Decision Tree Classifier model.  
+In order to obtain a good balance between Precision and Recall measures F1 score was used as a primary test score.  
+
+Here is the top 10 performing models that I have tried:  
+| Model | Features | F1 score Test | F1 score Train | Accuracy Test | Accuracy Train | Precision Test | Precision Train | Recall Test | Recall Train |
+| ----- | -------- | -------- | --------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'fromCC_Sq', 'fromSouth_Sq', 'fromWest_Sq', 'fromNE_Sq' | 0.708 | 0.735 | 0.742 | 0.765 | 0.707 | 0.744 | 0.742 | 0.765 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE' | 0.707 | 0.735 | 0.741 | 0.765 | 0.706 | 0.744 | 0.741 | 0.765 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'from_approved_center', 'from_denied_center' | 0.707 | 0.735 | 0.742 | 0.764 | 0.706 | 0.743 | 0.742 | 0.764 |
+| Decision Tree Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'fromCC_Sq', 'fromSouth_Sq', 'fromWest_Sq', 'fromNE_Sq' **with TFIDF Vectorizer** | 0.707 | 0.709 | 0.756 | 0.757 | 0.722 | 0.734 | 0.756 | 0.757 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'fromCC_Sq', 'fromSouth_Sq', 'fromWest_Sq', 'fromNE_Sq', 'from_approved_center', 'from_denied_center' | 0.706 | 0.734 | 0.741 | 0.764 | 0.705 | 0.743 | 0.741 | 0.764 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC' | 0.705 | 0.731 | 0.743 | 0.763 | 0.706 | 0.742 | 0.743 | 0.763 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center' | 0.705 | 0.734 | 0.740 | 0.764 | 0.704 | 0.743 | 0.740 | 0.764 |
+| K Neighbors Classifier | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'fromCC_Sq', 'fromSouth_Sq', 'fromWest_Sq', 'fromNE_Sq', 'from_approved_center', 'from_denied_center', 'from_approved_center_Sq', 'from_denied_center_Sq' | 0.698 | 0.733 | 0.737 | 0.763 | 0.696 | 0.743 | 0.737 | 0.763 |
+| Logistic Regression | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE' | 0.695 | 0.691 | 0.740 | 0.735 | 0.692 | 0.690 | 0.740 | 0.735 |
+| Logistic Regression | 'Board of Building Standards', 'L&I Review Board Codes', 'Zoning Board of Adjustment', 'lawyer', 'fromCC', 'from_general_center', 'fromSouth', 'fromWest', 'fromNE', 'fromCC_Sq', 'fromSouth_Sq', 'fromWest_Sq', 'fromNE_Sq' | 0.693 | 0.687 | 0.736 | 0.730 | 0.696 | 0.693 | 0.736 | 0.730 | 
+
 
