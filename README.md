@@ -32,7 +32,18 @@ An assumption has been made that ESQ or ESQUIRE in the field identifies the prim
 |LEO MULVIHILL, JR., ESQ. | 147|
 |HENRY M. CLINTON, ESQ | 143|
 
+### Addign landmarks for more feature generation
+Following four landmarks were created to assist in creating additional features.
+<img src="images/landmarks_map.png"/>  
 
-Comparison between lat features and geocode_y as well as between lng and geocode_x showed very strong correlation. So only lat and lng were used in the data models.
+### Appeals Map
+The more densely populated areas of the city have higher density of appeals. City parks, airports and other non-populated areas do appear empty on the map as well.
+Approved and Denied centroids are very close to each other.
+<img src="images/appeal_map.png"/>  
+
+### Distances from Center City
 Histogram of distances from Center City shows that the most of the records are concentrated closer to Center City and the number gradually drops further away. This is also consistent with the Center City being more densely built and more densely populated.
 <img src="images/distances_from_CC.png"/>  
+
+
+
