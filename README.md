@@ -1,5 +1,6 @@
 # Philadelphia Licenses and Inspections Appeals Decision Results
-<img src="images/appeal_map.png"/>
+<img src="images/appeal_map.png"/>  
+
 ## Problem Identification  
 Create the best possible model to accurately predict the appeal decision. This prediction model can help Philadelphia homeowners filing appeals with the L&I board. 
 
