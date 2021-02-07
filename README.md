@@ -43,7 +43,7 @@ Approved and Denied centroids are very close to each other.
 
 ### Distances from Center City
 Histogram of distances from Center City shows that the most of the records are concentrated closer to Center City and the number gradually drops further away. This is also consistent with the Center City being more densely built and more densely populated.
-<img src="images/distances_from_CC.png"/>  
+<img src="images/distances_from_CC.png"/  width="100">  
 
 
 
