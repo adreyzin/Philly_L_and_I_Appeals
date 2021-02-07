@@ -58,5 +58,6 @@ Following steps have been taken for the data pre-processing:
   * English stop words were used  
   * n-gram range 1,3 (from unigram to tri-gram)  
   * Word document frequency was set to be between 15 and 75  
+
 25% of the data were set as a test dataset with the rest used for model training.
 
